@@ -10,7 +10,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 /*
- * Created by: Jesse Shellabarger
+ * Created by: Jesse Shellabarger and Chase Bishop
  */
 
 public class GUI {
