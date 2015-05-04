@@ -112,7 +112,7 @@ public class GUI {
 				(panel.getWidth() / 2) - loginButton.getWidth() * 1/2,
 				(panel.getHeight() / 2) + (loginButton.getHeight()));
 		panel.add(loginButton);
-		loginButton.addActionListener(new LoginListener());
+		loginButton.addActionListener(g.new LoginListener());
 		loginButton.setVisible(true);
 
 		
@@ -148,27 +148,27 @@ public class GUI {
 		JPanel queryPanel = new ImagePanel(image);
 		queryPanel.setVisible(true);
 		
+		queryFrame.add(queryPanel);
+		queryFrame.pack();
 		queryFrame.setVisible(true);
 		queryFrame.setLocationRelativeTo(null);
 	}
-}
+	
+	class LoginListener implements ActionListener{
 
-class LoginListener implements ActionListener{
-
-	@Override
-	public void actionPerformed(ActionEvent arg0) {
-		//do stuff
-		
+		@Override
+		public void actionPerformed(ActionEvent arg0) {
+			createQueryWindow();
+			
+		}
 	}
 }
+
+
 
 class ImagePanel extends JPanel {
 
 	private Image img;
-
-//	public ImagePanel(String img) {
-//		this(new ImageIcon(img).getImage());
-//	}
 
 	public ImagePanel(Image img) {
 		super();
@@ -178,7 +178,6 @@ class ImagePanel extends JPanel {
 		setMinimumSize(size);
 		setMaximumSize(size);
 		setSize(size);
-//		setLayout(new BorderLayout());
 		setLayout(null);
 		}
 
