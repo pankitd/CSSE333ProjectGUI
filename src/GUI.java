@@ -112,7 +112,7 @@ public class GUI {
 				(panel.getWidth() / 2) - loginButton.getWidth() * 1/2,
 				(panel.getHeight() / 2) + (loginButton.getHeight()));
 		panel.add(loginButton);
-//		loginButton.addActionListener(new loginListener());
+		loginButton.addActionListener(new LoginListener());
 		loginButton.setVisible(true);
 
 		
@@ -150,6 +150,15 @@ public class GUI {
 		
 		queryFrame.setVisible(true);
 		queryFrame.setLocationRelativeTo(null);
+	}
+}
+
+class LoginListener implements ActionListener{
+
+	@Override
+	public void actionPerformed(ActionEvent arg0) {
+		//do stuff
+		
 	}
 }
 
