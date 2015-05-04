@@ -1,13 +1,21 @@
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Graphics;
 import java.awt.Image;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JTextField;
+import javax.swing.SpringLayout;
+import javax.swing.SwingUtilities;
 
 /*
  * Created by: Jesse Shellabarger and Chase Bishop
@@ -16,9 +24,13 @@ import javax.swing.JPanel;
 public class GUI {
 	private JFrame mainMenuFrame;
 	private ArrayList<JFrame> activeFrames;
+	private String[] usernames = new String[3];
 
 	public GUI() {
 		this.activeFrames = new ArrayList<JFrame>();
+		this.usernames[0] = "bishopcc";
+		this.usernames[1] = "Tayler";
+		this.usernames[2] = "Jesse";
 		JFrame mainMenuFrame = new JFrame();
 		this.activeFrames.add(mainMenuFrame);
 		mainMenuFrame.setTitle("Login");
@@ -28,29 +40,44 @@ public class GUI {
 	public static void main(String[] args) {
 		GUI g = new GUI();
 		
-		ImagePanel panel = new ImagePanel(new ImageIcon(
-				"resources/LoginBG.png").getImage());
+		Image image = new ImageIcon("resources/LoginBG.png").getImage();
+		ImagePanel panel = new ImagePanel(image);
 		g.activeFrames.get(0).getContentPane().add(panel);
-		g.activeFrames.get(0).pack();
-		panel.setVisible(true);
 		
 		//Title Label
-		JLabel titleLabel = new JLabel();
-		titleLabel.setText("<html><b>Horse Racing!</b><html>");
+		JLabel titleLabel = new JLabel("<html><b>Horse Racing!</b><html>");
 		titleLabel.setForeground(Color.CYAN);
-		panel.add(titleLabel);
+		panel.add(titleLabel, BorderLayout.NORTH);
 //		titleLabel.setLocation(panel.getWidth() * 1/2, panel.getHeight() * 3/4);
-		titleLabel.setVisible(true);
 		
 		//Adding Username Label
-		JLabel usernameLabel = new JLabel();
-		usernameLabel.setText("Username: ");
-		panel.add(usernameLabel);
+		JLabel usernameLabel = new JLabel("Username: ");
+		usernameLabel.setForeground(Color.GREEN);
+		JTextField usernameText = new JTextField(15);
+		usernameLabel.setLabelFor(usernameText);
+		panel.add(usernameLabel, BorderLayout.WEST);
+		panel.add(usernameText, BorderLayout.EAST);
 		//set location in here
+		
+		//Add login button
+		JButton loginButton = new JButton("Login");
+		
+//		loginButton.addActionListener(new ActionListener() {
+//
+//			@Override
+//			public void actionPerformed(ActionEvent e) {
+//				.activeFrames.get(0).setVisible(false);
+//			}
+//			
+//		});
+		
+		panel.add(loginButton, BorderLayout.SOUTH);
+		
+		titleLabel.setVisible(true);
 		usernameLabel.setVisible(true);
-		
-		
+		g.activeFrames.get(0).pack();
 		g.activeFrames.get(0).setVisible(true);
+		g.activeFrames.get(0).setLocationRelativeTo(null);
 	}
 
 	public JFrame getMainMenuFrame() {
@@ -73,49 +100,23 @@ public class GUI {
 class ImagePanel extends JPanel {
 
 	private Image img;
-	private int row;
-	private int column;
 
-	public ImagePanel(String img) {
-		this(new ImageIcon(img).getImage());
-	}
+//	public ImagePanel(String img) {
+//		this(new ImageIcon(img).getImage());
+//	}
 
 	public ImagePanel(Image img) {
+		super();
 		this.img = img;
 		Dimension size = new Dimension(img.getWidth(null), img.getHeight(null));
 		setPreferredSize(size);
 		setMinimumSize(size);
 		setMaximumSize(size);
 		setSize(size);
-		setLayout(null);
-	}
+		setLayout(new BorderLayout());
+		}
 
 	public void paintComponent(Graphics g) {
 		g.drawImage(img, 0, 0, null);
 	}
-
-	public void setRow(int row) {
-		this.row = row;
-	}
-
-	public int getRow() {
-		return this.row;
-	}
-
-	public void setColumn(int column) {
-		this.column = column;
-	}
-
-	public int getColumn() {
-		return this.column;
-	}
-
-	public int getPixelX() {
-		return this.column * 80 + 10;
-	}
-
-	public int getPixelY() {
-		return this.row * 80 + 10;
-	}
-
 }
