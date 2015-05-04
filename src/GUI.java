@@ -45,60 +45,48 @@ public class GUI {
 		ImagePanel panel = new ImagePanel(image);
 		g.activeFrames.get(0).getContentPane().add(panel);
 		
-//		JButton newGameButton = new JButton();
-//		newGameButton.setSize(150, 75);
-//		newGameButton.setText("New Game");
-//		Font newGameFont = newGameButton.getFont();
-//		newGameButton.setFont(new Font(newGameFont.getName(), 4, 20));
-//		newGameButton.setLocation((panel.getWidth() / 4) - 35,
-//				(panel.getHeight() / 2) - 37);
-//		panel.add(newGameButton);
-//		newGameButton.setVisible(true);
+		//Username Label
+		JLabel titleLabel = new JLabel();
+		titleLabel.setText("<html><b>Horse Racing</b><html>");
+		titleLabel.setForeground(Color.CYAN);
+		Font titleFont = titleLabel.getFont();
+		titleLabel.setFont(new Font(titleFont.getName(), 4, 14));
+		titleLabel.setSize(110, 25);
+		panel.add(titleLabel);
+		titleLabel.setLocation(
+				panel.getWidth() / 2 - (titleLabel.getWidth() /2),
+				panel.getHeight() / 4 - titleLabel.getHeight());
+		titleLabel.setVisible(true);
 		
-		JLabel p1NameLabel = new JLabel();
-
-		p1NameLabel.setText("<html><b>Player 1 Name:</b><html>");
-		p1NameLabel.setForeground(Color.CYAN);
-		Font p1NameFont = p1NameLabel.getFont();
-		p1NameLabel.setFont(new Font(p1NameFont.getName(), 4, 14));
-		p1NameLabel.setSize(110, 25);
-		panel.add(p1NameLabel);
-		p1NameLabel.setLocation(
-				panel.getWidth() / 2 - p1NameLabel.getWidth(),
-				panel.getHeight() / 2 - p1NameLabel.getHeight() * 2);
-		p1NameLabel.setVisible(true);
+		//Username Label
+		JLabel usernameLabel = new JLabel();
+		usernameLabel.setText("<html><b>Username: </b><html>");
+		usernameLabel.setForeground(Color.CYAN);
+		Font usernameFont = usernameLabel.getFont();
+		usernameLabel.setFont(new Font(usernameFont.getName(), 4, 14));
+		usernameLabel.setSize(110, 25);
+		panel.add(usernameLabel);
+		usernameLabel.setLocation(
+				panel.getWidth() / 2 - usernameLabel.getWidth(),
+				panel.getHeight() / 2 - usernameLabel.getHeight()*1/2);
+		usernameLabel.setVisible(true);
 		
-//		//Title Label
-//		JLabel titleLabel = new JLabel("<html><b>Horse Racing!</b><html>");
-//		titleLabel.setForeground(Color.CYAN);
-////		panel.add(titleLabel, BorderLayout.NORTH);
-////		titleLabel.setLocation(panel.getWidth() * 1/2, panel.getHeight() * 3/4);
+		//Password Label
+		JLabel passwordLabel = new JLabel();
+		passwordLabel.setText("<html><b>Password: </b><html>");
+		passwordLabel.setForeground(Color.CYAN);
+		Font passwordFont = passwordLabel.getFont();
+		passwordLabel.setFont(new Font(passwordFont.getName(), 4, 14));
+		passwordLabel.setSize(110, 25);
+		panel.add(passwordLabel);
+		passwordLabel.setLocation(
+				panel.getWidth() / 2 - passwordLabel.getWidth(),
+				panel.getHeight() / 2 + passwordLabel.getHeight() * 1/2);
+		passwordLabel.setVisible(true);
 		
-//		//Adding Username Label
-//		JLabel usernameLabel = new JLabel("Username: ");
-//		usernameLabel.setForeground(Color.GREEN);
-//		JTextField usernameText = new JTextField(15);
-//		usernameLabel.setLabelFor(usernameText);
-//		panel.add(usernameLabel, BorderLayout.WEST);
-//		panel.add(usernameText, BorderLayout.EAST);
-//		//set location in here
-//		
-//		//Add login button
-//		JButton loginButton = new JButton("Login");
+		//Username Textbox
 		
-//		loginButton.addActionListener(new ActionListener() {
-//
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				.activeFrames.get(0).setVisible(false);
-//			}
-//			
-//		});
 		
-//		panel.add(loginButton, BorderLayout.SOUTH);
-		
-//		titleLabel.setVisible(true);
-//		usernameLabel.setVisible(true);
 		g.activeFrames.get(0).pack();
 		g.activeFrames.get(0).setVisible(true);
 		g.activeFrames.get(0).setLocationRelativeTo(null);
