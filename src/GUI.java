@@ -25,13 +25,9 @@ import javax.swing.SwingUtilities;
 public class GUI {
 	private JFrame mainMenuFrame;
 	private ArrayList<JFrame> activeFrames;
-	private String[] usernames = new String[3];
 
 	public GUI() {
 		this.activeFrames = new ArrayList<JFrame>();
-		this.usernames[0] = "bishopcc";
-		this.usernames[1] = "Tayler";
-		this.usernames[2] = "Jesse";
 		JFrame mainMenuFrame = new JFrame();
 		this.activeFrames.add(mainMenuFrame);
 		mainMenuFrame.setTitle("Login");
