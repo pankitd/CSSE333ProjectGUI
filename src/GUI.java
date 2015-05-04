@@ -136,6 +136,21 @@ public class GUI {
 	public void setActiveFrames(ArrayList<JFrame> newActiveFrames){
 		this.activeFrames = newActiveFrames;
 	}
+	
+	public void createQueryWindow() {
+		this.activeFrames.get(0).setVisible(false);
+		
+		JFrame queryFrame = new JFrame("And... They're Searching!");
+		queryFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		this.activeFrames.add(queryFrame);
+		
+		Image image = new ImageIcon("resources/trackBackground.jpg").getImage();
+		JPanel queryPanel = new ImagePanel(image);
+		queryPanel.setVisible(true);
+		
+		queryFrame.setVisible(true);
+		queryFrame.setLocationRelativeTo(null);
+	}
 }
 
 class ImagePanel extends JPanel {
