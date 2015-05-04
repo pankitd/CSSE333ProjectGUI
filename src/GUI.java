@@ -2,6 +2,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.awt.Image;
 import java.awt.event.ActionEvent;
@@ -44,23 +45,46 @@ public class GUI {
 		ImagePanel panel = new ImagePanel(image);
 		g.activeFrames.get(0).getContentPane().add(panel);
 		
-		//Title Label
-		JLabel titleLabel = new JLabel("<html><b>Horse Racing!</b><html>");
-		titleLabel.setForeground(Color.CYAN);
-		panel.add(titleLabel, BorderLayout.NORTH);
-//		titleLabel.setLocation(panel.getWidth() * 1/2, panel.getHeight() * 3/4);
+//		JButton newGameButton = new JButton();
+//		newGameButton.setSize(150, 75);
+//		newGameButton.setText("New Game");
+//		Font newGameFont = newGameButton.getFont();
+//		newGameButton.setFont(new Font(newGameFont.getName(), 4, 20));
+//		newGameButton.setLocation((panel.getWidth() / 4) - 35,
+//				(panel.getHeight() / 2) - 37);
+//		panel.add(newGameButton);
+//		newGameButton.setVisible(true);
 		
-		//Adding Username Label
-		JLabel usernameLabel = new JLabel("Username: ");
-		usernameLabel.setForeground(Color.GREEN);
-		JTextField usernameText = new JTextField(15);
-		usernameLabel.setLabelFor(usernameText);
-		panel.add(usernameLabel, BorderLayout.WEST);
-		panel.add(usernameText, BorderLayout.EAST);
-		//set location in here
+		JLabel p1NameLabel = new JLabel();
+
+		p1NameLabel.setText("<html><b>Player 1 Name:</b><html>");
+		p1NameLabel.setForeground(Color.CYAN);
+		Font p1NameFont = p1NameLabel.getFont();
+		p1NameLabel.setFont(new Font(p1NameFont.getName(), 4, 14));
+		p1NameLabel.setSize(110, 25);
+		panel.add(p1NameLabel);
+		p1NameLabel.setLocation(
+				panel.getWidth() / 2 - p1NameLabel.getWidth(),
+				panel.getHeight() / 2 - p1NameLabel.getHeight() * 2);
+		p1NameLabel.setVisible(true);
 		
-		//Add login button
-		JButton loginButton = new JButton("Login");
+//		//Title Label
+//		JLabel titleLabel = new JLabel("<html><b>Horse Racing!</b><html>");
+//		titleLabel.setForeground(Color.CYAN);
+////		panel.add(titleLabel, BorderLayout.NORTH);
+////		titleLabel.setLocation(panel.getWidth() * 1/2, panel.getHeight() * 3/4);
+		
+//		//Adding Username Label
+//		JLabel usernameLabel = new JLabel("Username: ");
+//		usernameLabel.setForeground(Color.GREEN);
+//		JTextField usernameText = new JTextField(15);
+//		usernameLabel.setLabelFor(usernameText);
+//		panel.add(usernameLabel, BorderLayout.WEST);
+//		panel.add(usernameText, BorderLayout.EAST);
+//		//set location in here
+//		
+//		//Add login button
+//		JButton loginButton = new JButton("Login");
 		
 //		loginButton.addActionListener(new ActionListener() {
 //
@@ -71,10 +95,10 @@ public class GUI {
 //			
 //		});
 		
-		panel.add(loginButton, BorderLayout.SOUTH);
+//		panel.add(loginButton, BorderLayout.SOUTH);
 		
-		titleLabel.setVisible(true);
-		usernameLabel.setVisible(true);
+//		titleLabel.setVisible(true);
+//		usernameLabel.setVisible(true);
 		g.activeFrames.get(0).pack();
 		g.activeFrames.get(0).setVisible(true);
 		g.activeFrames.get(0).setLocationRelativeTo(null);
@@ -113,7 +137,8 @@ class ImagePanel extends JPanel {
 		setMinimumSize(size);
 		setMaximumSize(size);
 		setSize(size);
-		setLayout(new BorderLayout());
+//		setLayout(new BorderLayout());
+		setLayout(null);
 		}
 
 	public void paintComponent(Graphics g) {
