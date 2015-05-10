@@ -11,6 +11,7 @@ import java.util.ArrayList;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -143,6 +144,18 @@ public class GUI {
 		Image image = new ImageIcon("resources/trackBackground.jpg").getImage();
 		JPanel queryPanel = new ImagePanel(image);
 		queryPanel.setVisible(true);
+		
+		String[] selectPresets = { "0:30", "0:45", "1:00", "1:15",
+				"1:30", "1:45", "2:00"};
+		JComboBox<String> selectComboBox = new JComboBox<String>(
+				selectPresets);
+		selectComboBox.setEditable(true);
+		selectComboBox.setSize(110, 25);
+		queryPanel.add(selectComboBox);
+		selectComboBox.setLocation(queryPanel.getWidth() / 2,
+				queryPanel.getHeight() / 2);
+		selectComboBox.setEditable(false);
+		selectComboBox.setVisible(true);
 		
 		queryFrame.add(queryPanel);
 		queryFrame.pack();
